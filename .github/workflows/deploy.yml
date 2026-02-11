@@ -9,12 +9,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          static_site_generator: html
-          disable_auto_update_branch: false
+          name: github-pages
+          path: './'
+
+permissions:
+  contents: write
+  pages: write
